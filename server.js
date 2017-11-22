@@ -1,4 +1,5 @@
 const HTTP = require('http');
+const { sendJSON } = require('./utils')
 
 const server = HTTP.createServer((request, response) => {
   const path = request.url
@@ -20,17 +21,12 @@ const server = HTTP.createServer((request, response) => {
       </body>
     </html>`);
   } else if (path === '/postcode') {
-    response.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-    response.end(`{ "name" : "City", "postcode": 1000}`);
+    sendJSON(response, { "name" : "City", "postcode": 1000});
   } else if (path === '/postcode/9000') {
-    response.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-    response.end(JSON.stringify({ "name" : "City9000", "postcode": 9000}));
+    sendJSON(response, { "name" : "City9000", "postcode": 9000});
   } else {
-    response.end('Response to your request');
+    response.writeHead(404);
+    response.end('Page not found');
   }
 });
 
