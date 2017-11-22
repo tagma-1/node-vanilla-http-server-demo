@@ -1,0 +1,14 @@
+{
+  "name": "node-vanilla-http-server",
+  "version": "1.0.0",
+  "description": "Vanilla web server in Node.js",
+  "main": "server.js",
+  "author": "Tagma-1 <31788490+tagma-1@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
