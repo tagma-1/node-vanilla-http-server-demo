@@ -7,11 +7,28 @@ const server = HTTP.createServer((request, response) => {
     response.end('Home');
   } else if (path === '/hello') {
     response.end('Hello!');
-  } else if (path === '/postcode.json') {
+  } else if (path === '/about') {
+    response.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
+    response.end(`
+    <! doctype html>
+    <html>
+      <body>
+        <h1> About </h1>
+        <p> This is a paragraph </h1>
+      </body>
+    </html>`);
+  } else if (path === '/postcode') {
     response.writeHead(200, {
       'Content-Type': 'application/json'
     });
     response.end(`{ "name" : "City", "postcode": 1000}`);
+  } else if (path === '/postcode/9000') {
+    response.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
+    response.end(JSON.stringify({ "name" : "City9000", "postcode": 9000}));
   } else {
     response.end('Response to your request');
   }
