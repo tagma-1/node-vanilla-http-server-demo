@@ -1,19 +1,15 @@
 const HTTP = require('http');
-const { sendJSON } = require('./utils')
+const { sendJSON, sendHTML } = require('./utils')
 
 const server = HTTP.createServer((request, response) => {
   const path = request.url
   console.log('Request received', path);
   if (path === '/') {
-    response.end('Home');
+    sendHTML(response, 'Home');
   } else if (path === '/hello') {
     response.end('Hello!');
   } else if (path === '/about') {
-    response.writeHead(200, {
-      'Content-Type': 'text/html'
-    });
-    response.end(`
-    <! doctype html>
+    sendHTML(response, `<! doctype html>
     <html>
       <body>
         <h1> About </h1>
