@@ -1,3 +1,3 @@
 # Node.js
 
-A vanilla HTTP server using Node.js
+A vanilla HTTP server built using Node.js
