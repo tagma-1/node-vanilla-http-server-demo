@@ -1,1 +1,3 @@
-# node-vanilla-http-server
+# Node.js
+
+A vanilla HTTP server using Node.js
